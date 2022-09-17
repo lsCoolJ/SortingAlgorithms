@@ -7,7 +7,7 @@ function merge(l,r) {
     }
     return [...merged, ...l, ...r]
 }
-function mergeSort(array) {
+function mergeSort(array, halfIdx = array.length/2) {
     const halfIdx = array.length / 2
     if(array.length < 2) return array
     const l = array.splice(0,halfIdx)
@@ -15,8 +15,7 @@ function mergeSort(array) {
 }
 
 //different way of doing mergeSort:
-function mergeSort2(arr) {
-    let n = arr.length;
+function mergeSort2(arr, n = arr.length) {
     if(n < 2) return arr;
     const mid = Math.ceil(n/2);
     const l = mergeSort2(arr.slice(0,mid));
@@ -31,6 +30,7 @@ function mergeSort2(arr) {
     return left;
 }
 
+// Counting sort
 function countingSort(arr, n = arr.length) {
     let max = Math.max(...arr); // Find the max number in the array.
     let temp = new Array(max+1).fill(0);
@@ -46,4 +46,16 @@ function countingSort(arr, n = arr.length) {
         temp[cur]--;
     }
     return sorted;
+}
+
+// Bubble sort
+function __(x:number,y:number) {return x;}
+function bubbleSort(arr: number[], n = arr.length) {
+    let numSwaps = 0;
+    for(let i = n - 3; i >= 0; i--) {
+        for(let j = i; j <= i+2; j--) {
+            if(arr[j] > arr[j+1]) arr[j+1] = __(arr[j], arr[j] = arr[j+1]);
+        }
+    }
+    return arr;
 }
