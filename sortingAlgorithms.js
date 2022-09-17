@@ -51,7 +51,6 @@ function countingSort(arr, n = arr.length) {
 // Bubble sort
 function __(x:number,y:number) {return x;}
 function bubbleSort(arr: number[], n = arr.length) {
-    let numSwaps = 0;
     for(let i = n - 3; i >= 0; i--) {
         for(let j = i; j <= i+2; j--) {
             if(arr[j] > arr[j+1]) arr[j+1] = __(arr[j], arr[j] = arr[j+1]);
